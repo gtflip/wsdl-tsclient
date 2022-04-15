@@ -313,15 +313,15 @@ export async function parseWsdl(wsdlPath: string, options: Partial<ParserOptions
                                           visitedDefinitions
                                       );
                             } else {
-                                const type = parsedWsdl.findDefinition(paramName);
+                                const type = parsedWsdl.findDefinition(method.output.$name);
                                 outputDefinition = type
                                     ? type
                                     : parseDefinition(
                                           parsedWsdl,
                                           mergedOptions,
-                                          paramName,
+                                          method.output.$name,
                                           outputMessage.parts,
-                                          [paramName],
+                                          [method.output.$name],
                                           visitedDefinitions
                                       );
                             }
